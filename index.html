@@ -5,95 +5,2185 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ManSu | Cloud Kitchen</title>
   <meta name="description" content="ManSu Cloud Kitchen - From Our Kitchen To Your Heart. Dum Biryani, Avakaya Pappu Annam, Cookies and Milkshakes." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --ivory:#f7f1e8; --cream:#fffaf3; --charcoal:#171717; --muted:#6b5a4a;
-      --copper:#b66b48; --green:#163626; --line:rgba(182,107,72,.28);
+      --ivory:#f7f1e8;
+      --cream:#fffaf3;
+      --charcoal:#171717;
+      --muted:#6b5a4a;
+      --copper:#b66b48;
+      --green:#163626;
+      --line:rgba(182,107,72,.28);
     }
-    *{box-sizing:border-box} html{scroll-behavior:smooth}
-    body{margin:0;background:var(--ivory);color:var(--charcoal);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;}
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--ivory);
+      color:var(--charcoal);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;
+    }
+
     .wrap{width:min(1120px,92vw);margin:auto}
-    header{position:sticky;top:0;z-index:5;background:rgba(247,241,232,.78);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
-    nav{height:74px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;font-weight:700;letter-spacing:.18em}
-    .brand img{width:46px;height:46px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
-    .links{display:flex;gap:22px;align-items:center;font-size:13px;text-transform:uppercase;letter-spacing:.12em}
-    .links a{color:var(--muted);text-decoration:none}.links a:hover{color:var(--copper)}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:999px;text-decoration:none;font-weight:700;background:var(--green);color:#fff;border:1px solid transparent;box-shadow:0 16px 40px rgba(22,54,38,.16)}
-    .btn.alt{background:transparent;color:var(--green);border-color:rgba(22,54,38,.25);box-shadow:none}
-    .hero{padding:64px 0 44px;display:grid;grid-template-columns:1.04fr .96fr;gap:44px;align-items:center}
-    .eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--copper);font-weight:700;margin-bottom:16px}
-    h1{font-family:'Cormorant Garamond',serif;font-size:clamp(56px,8vw,104px);line-height:.88;margin:0 0 18px;letter-spacing:.05em;font-weight:700}
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:5;
+      background:rgba(247,241,232,.78);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--line);
+    }
+
+    nav{
+      height:74px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color:inherit;
+      font-weight:700;
+      letter-spacing:.18em;
+    }
+
+    .brand img{
+      width:46px;
+      height:46px;
+      border-radius:50%;
+      object-fit:cover;
+      border:1px solid var(--line);
+    }
+
+    .links{
+      display:flex;
+      gap:22px;
+      align-items:center;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+    }
+
+    .links a{
+      color:var(--muted);
+      text-decoration:none;
+    }
+
+    .links a:hover{color:var(--copper)}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:13px 20px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:700;
+      background:var(--green);
+      color:#fff;
+      border:1px solid transparent;
+      box-shadow:0 16px 40px rgba(22,54,38,.16);
+    }
+
+    .btn.alt{
+      background:transparent;
+      color:var(--green);
+      border-color:rgba(22,54,38,.25);
+      box-shadow:none;
+    }
+
+    .hero{
+      padding:64px 0 44px;
+      display:grid;
+      grid-template-columns:1.04fr .96fr;
+      gap:44px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      font-size:12px;
+      letter-spacing:.28em;
+      text-transform:uppercase;
+      color:var(--copper);
+      font-weight:700;
+      margin-bottom:16px;
+    }
+
+    h1{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(56px,8vw,104px);
+      line-height:.88;
+      margin:0 0 18px;
+      letter-spacing:.05em;
+      font-weight:700;
+    }
+
     h1 span{color:var(--copper)}
-    .lead{font-size:clamp(18px,2.2vw,24px);line-height:1.55;color:var(--muted);max-width:620px;margin:0 0 28px}
-    .hero-card{border:1px solid var(--line);border-radius:34px;background:linear-gradient(145deg,#fff8ee,#ead7bf);padding:12px;box-shadow:0 30px 90px rgba(60,42,22,.18);position:relative;overflow:hidden}
-    .hero-card video,.hero-card img{width:100%;display:block;border-radius:25px;object-fit:cover;aspect-ratio:9/13;background:#ddccb6}
-    .pillrow{display:flex;flex-wrap:wrap;gap:10px;margin:30px 0}.pill{padding:10px 14px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:rgba(255,255,255,.35);font-size:13px}
-    section{padding:64px 0;border-top:1px solid var(--line)}
-    .section-head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:30px}
-    h2{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,62px);line-height:.95;margin:0;letter-spacing:.04em}.section-head p{max-width:520px;color:var(--muted);line-height:1.7;margin:0}
-    .story{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}.story-card{background:rgba(255,255,255,.45);border:1px solid var(--line);border-radius:26px;padding:28px}.story-card h3{font-family:'Cormorant Garamond',serif;font-size:34px;margin:0 0 8px}.story-card p{color:var(--muted);line-height:1.7;margin:0}
-    .menu{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.item{background:#fff5ea;border:1px solid var(--line);border-radius:28px;overflow:hidden}.item img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}.item div{padding:18px}.item h3{margin:0 0 6px;font-family:'Cormorant Garamond',serif;font-size:27px}.item p{margin:0;color:var(--muted);font-size:14px;line-height:1.55}
-    .films{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.film{border-radius:26px;overflow:hidden;border:1px solid var(--line);background:#0d0d0d}.film video{width:100%;display:block;aspect-ratio:9/16;object-fit:cover}.film b{display:block;padding:14px 16px;background:#fff8ef;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
-    .cta{background:linear-gradient(135deg,var(--green),#0d2018);color:#fff;border-radius:38px;padding:46px;display:grid;grid-template-columns:1.2fr .8fr;gap:26px;align-items:center}.cta h2{color:#fff}.cta p{color:rgba(255,255,255,.72);line-height:1.8}.cta .btn{background:var(--copper);color:#fff}.cta .btn.alt{border-color:rgba(255,255,255,.3);color:#fff;background:transparent}
-    footer{padding:40px 0;color:var(--muted);font-size:14px}.footergrid{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.small{font-size:12px;letter-spacing:.14em;text-transform:uppercase}
-    @media(max-width:850px){.hero,.cta{grid-template-columns:1fr}.links{display:none}.hero{padding-top:34px}.menu,.films,.story{grid-template-columns:1fr 1fr}.section-head{display:block}.section-head p{margin-top:12px}.cta{padding:30px}.hero-card video,.hero-card img{aspect-ratio:4/5}}
-    @media(max-width:560px){.menu,.films,.story{grid-template-columns:1fr} h1{font-size:62px}.brand span{display:none}}
+
+    .lead{
+      font-size:clamp(18px,2.2vw,24px);
+      line-height:1.55;
+      color:var(--muted);
+      max-width:620px;
+      margin:0 0 28px;
+    }
+
+    .hero-card{
+      border:1px solid var(--line);
+      border-radius:34px;
+      background:linear-gradient(145deg,#fff8ee,#ead7bf);
+      padding:12px;
+      box-shadow:0 30px 90px rgba(60,42,22,.18);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-card video,
+    .hero-card img{
+      width:100%;
+      display:block;
+      border-radius:25px;
+      object-fit:cover;
+      aspect-ratio:9/13;
+      background:#ddccb6;
+    }
+
+    .pillrow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:30px 0;
+    }
+
+    .pill{
+      padding:10px 14px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color:var(--muted);
+      background:rgba(255,255,255,.35);
+      font-size:13px;
+    }
+
+    section{
+      padding:64px 0;
+      border-top:1px solid var(--line);
+    }
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      gap:24px;
+      align-items:end;
+      margin-bottom:30px;
+    }
+
+    h2{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(36px,5vw,62px);
+      line-height:.95;
+      margin:0;
+      letter-spacing:.04em;
+    }
+
+    .section-head p{
+      max-width:520px;
+      color:var(--muted);
+      line-height:1.7;
+      margin:0;
+    }
+
+    .story{
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:18px;
+    }
+
+    .story-card{
+      background:rgba(255,255,255,.45);
+      border:1px solid var(--line);
+      border-radius:26px;
+      padding:28px;
+    }
+
+    .story-card h3{
+      font-family:'Cormorant Garamond',serif;
+      font-size:34px;
+      margin:0 0 8px;
+    }
+
+    .story-card p{
+      color:var(--muted);
+      line-height:1.7;
+      margin:0;
+    }
+
+    .menu{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+
+    .item{
+      background:#fff5ea;
+      border:1px solid var(--line);
+      border-radius:28px;
+      overflow:hidden;
+    }
+
+    .item img{
+      width:100%;
+      aspect-ratio:1/1;
+      object-fit:cover;
+      display:block;
+    }
+
+    .item div{padding:18px}
+
+    .item h3{
+      margin:0 0 6px;
+      font-family:'Cormorant Garamond',serif;
+      font-size:27px;
+    }
+
+    .item p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.55;
+    }
+
+    .films{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+
+    .film{
+      border-radius:26px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#0d0d0d;
+    }
+
+    .film video{
+      width:100%;
+      display:block;
+      aspect-ratio:9/16;
+      object-fit:cover;
+    }
+
+    .film b{
+      display:block;
+      padding:14px 16px;
+      background:#fff8ef;
+      font-size:13px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--green);
+    }
+
+    .cta{
+      background:linear-gradient(135deg,var(--green),#0d2018);
+      color:#fff;
+      border-radius:38px;
+      padding:46px;
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:26px;
+      align-items:center;
+    }
+
+    .cta h2{color:#fff}
+
+    .cta p{
+      color:rgba(255,255,255,.72);
+      line-height:1.8;
+    }
+
+    .cta .btn{
+      background:var(--copper);
+      color:#fff;
+    }
+
+    .cta .btn.alt{
+      border-color:rgba(255,255,255,.3);
+      color:#fff;
+      background:transparent;
+    }
+
+    footer{
+      padding:40px 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .footergrid{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .small{
+      font-size:12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+
+    @media(max-width:850px){
+      .hero,.cta{grid-template-columns:1fr}
+      .links{display:none}
+      .hero{padding-top:34px}
+      .menu,.films,.story{grid-template-columns:1fr 1fr}
+      .section-head{display:block}
+      .section-head p{margin-top:12px}
+      .cta{padding:30px}
+      .hero-card video,.hero-card img{aspect-ratio:4/5}
+    }
+
+    @media(max-width:560px){
+      .menu,.films,.story{grid-template-columns:1fr}
+      h1{font-size:62px}
+      .brand span{display:none}
+    }
   </style>
 </head>
+
 <body>
-  <header><nav class="wrap"><a class="brand" href="#top"><img src="assets/mansu-logo.jpg" alt="ManSu logo"><span>MANSU</span></a><div class="links"><a href="#story">Story</a><a href="#menu">Menu</a><a href="#films">Films</a><a href="#order">Order</a></div></nav></header>
+  <header>
+    <nav class="wrap">
+      <a class="brand" href="#top">
+        <img src="mansu-logo.jpg" alt="ManSu logo">
+        <span>MANSU</span>
+      </a>
+
+      <div class="links">
+        <a href="#story">Story</a>
+        <a href="#menu">Menu</a>
+        <a href="#films">Films</a>
+        <a href="#order">Order</a>
+      </div>
+    </nav>
+  </header>
+
   <main id="top">
     <section class="wrap hero">
       <div>
         <div class="eyebrow">Launching Soon • Hyderabad</div>
         <h1>MAN<span>SU</span></h1>
-        <p class="lead">A premium cloud kitchen built around warmth, freshness and comfort. From our kitchen to your heart.</p>
-        <div class="pillrow"><span class="pill">Dum Biryani</span><span class="pill">Avakaya Pappu Annam</span><span class="pill">Cookies</span><span class="pill">Milkshakes</span></div>
-        <a class="btn" href="#order">Order Soon</a> <a class="btn alt" href="https://instagram.com/eat.mansu" target="_blank" rel="noreferrer">Instagram</a>
+        <p class="lead">
+          A premium cloud kitchen built around warmth, freshness and comfort.
+          From our kitchen to your heart.
+        </p>
+
+        <div class="pillrow">
+          <span class="pill">Dum Biryani</span>
+          <span class="pill">Avakaya Pappu Annam</span>
+          <span class="pill">Cookies</span>
+          <span class="pill">Milkshakes</span>
+        </div>
+
+        <a class="btn" href="#order">Order Soon</a>
+        <a class="btn alt" href="https://instagram.com/eat.mansu" target="_blank" rel="noreferrer">Instagram</a>
       </div>
-      <div class="hero-card"><video src="assets/logo-reveal.mp4" autoplay muted loop playsinline poster="assets/mansu-logo.jpg"></video></div>
+
+      <div class="hero-card">
+        <video src="logo-reveal.mp4" autoplay muted loop playsinline poster="mansu-logo.jpg"></video>
+      </div>
     </section>
 
-    <section id="story"><div class="wrap">
-      <div class="section-head"><h2>Goodness from the Heart</h2><p>ManSu is a name created around feeling: food that feels thoughtful, warm and made with care.</p></div>
-      <div class="story">
-        <div class="story-card"><h3>Man</h3><p><b>मन</b> represents heart, care and sincerity — the feeling behind every meal.</p></div>
-        <div class="story-card"><h3>Su</h3><p><b>सु</b> means goodness, excellence and auspiciousness — a promise of quality.</p></div>
-        <div class="story-card"><h3>ManSu</h3><p>Together, ManSu means <b>Goodness from the Heart</b>.</p></div>
-      </div>
-    </div></section>
+    <section id="story">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Goodness from the Heart</h2>
+          <p>
+            ManSu is a name created around feeling: food that feels thoughtful,
+            warm and made with care.
+          </p>
+        </div>
 
-    <section id="menu"><div class="wrap">
-      <div class="section-head"><h2>Signature Comforts</h2><p>Freshly crafted dishes, desserts and shakes designed for homely comfort with a premium touch.</p></div>
-      <div class="menu">
-        <article class="item"><img src="assets/avakaya.jpg" alt="Avakaya Pappu Annam"><div><h3>Avakaya Pappu Annam</h3><p>Andhra comfort food with pappu, rice, ghee and avakaya.</p></div></article>
-        <article class="item"><img src="assets/biryani.jpg" alt="Chicken Dum Biryani"><div><h3>Chicken Dum Biryani</h3><p>Aromatic rice, juicy chicken and warm spices.</p></div></article>
-        <article class="item"><img src="assets/cookies.jpg" alt="Chocolate Chip Cookies"><div><h3>Chocolate Chip Cookies</h3><p>Soft, chewy and loaded with chocolate.</p></div></article>
-        <article class="item"><img src="assets/milkshake.jpg" alt="Premium Milkshake"><div><h3>Premium Milkshakes</h3><p>Thick shakes with rich chocolate and cream.</p></div></article>
-      </div>
-    </div></section>
+        <div class="story">
+          <div class="story-card">
+            <h3>Man</h3>
+            <p><b>मन</b> represents heart, care and sincerity — the feeling behind every meal.</p>
+          </div>
 
-    <section id="films"><div class="wrap">
-      <div class="section-head"><h2>Brand Films</h2><p>Your launch clips are included here. They can be used as Instagram reels and website media.</p></div>
-      <div class="films">
-        <div class="film"><video src="assets/avakaya-pappu.mp4" controls muted playsinline poster="assets/avakaya.jpg"></video><b>Avakaya Pappu</b></div>
-        <div class="film"><video src="assets/chicken-dum-biryani.mp4" controls muted playsinline poster="assets/biryani.jpg"></video><b>Chicken Dum Biryani</b></div>
-        <div class="film"><video src="assets/cookies-shakes.mp4" controls muted playsinline poster="assets/cookies.jpg"></video><b>Cookies & Shakes</b></div>
-        <div class="film"><video src="assets/logo-reveal.mp4" controls muted playsinline poster="assets/mansu-logo.jpg"></video><b>ManSu Reveal</b></div>
-      </div>
-    </div></section>
+          <div class="story-card">
+            <h3>Su</h3>
+            <p><b>सु</b> means goodness, excellence and auspiciousness — a promise of quality.</p>
+          </div>
 
-    <section id="order"><div class="wrap">
-      <div class="cta">
-        <div><div class="eyebrow">Opening Soon</div><h2>From Our Kitchen To Your Heart</h2><p>Use this section for Swiggy, Zomato and WhatsApp order links when you are ready to launch.</p></div>
-        <div><a class="btn" href="https://instagram.com/eat.mansu" target="_blank" rel="noreferrer">Follow @eat.mansu</a><br><br><a class="btn alt" href="mailto:hello@mansu.in">hello@mansu.in</a></div>
+          <div class="story-card">
+            <h3>ManSu</h3>
+            <p>Together, ManSu means <b>Goodness from the Heart</b>.</p>
+          </div>
+        </div>
       </div>
-    </div></section>
+    </section>
+
+    <section id="menu">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Signature Comforts</h2>
+          <p>
+            Freshly crafted dishes, desserts and shakes designed for homely comfort
+            with a premium touch.
+          </p>
+        </div>
+
+        <div class="menu">
+          <article class="item">
+            <img src="avakaya.jpg" alt="Avakaya Pappu Annam">
+            <div>
+              <h3>Avakaya Pappu Annam</h3>
+              <p>Andhra comfort food with pappu, rice, ghee and avakaya.</p>
+            </div>
+          </article>
+
+          <article class="item">
+            <img src="biryani.jpg" alt="Chicken Dum Biryani">
+            <div>
+              <h3>Chicken Dum Biryani</h3>
+              <p>Aromatic rice, juicy chicken and warm spices.</p>
+            </div>
+          </article>
+
+          <article class="item">
+            <img src="cookies.jpg" alt="Chocolate Chip Cookies">
+            <div>
+              <h3>Chocolate Chip Cookies</h3>
+              <p>Soft, chewy and loaded with chocolate.</p>
+            </div>
+          </article>
+
+          <article class="item">
+            <img src="milkshake.jpg" alt="Premium Milkshake">
+            <div>
+              <h3>Premium Milkshakes</h3>
+              <p>Thick shakes with rich chocolate and cream.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="films">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Brand Films</h2>
+          <p>
+            Your launch clips are included here. They can be used as Instagram reels
+            and website media.
+          </p>
+        </div>
+
+        <div class="films">
+          <div class="film">
+            <video src="avakaya-pappu.mp4" controls muted playsinline poster="avakaya.jpg"></video>
+            <b>Avakaya Pappu</b>
+          </div>
+
+          <div class="film">
+            <video src="chicken-dum-biryani.mp4" controls muted playsinline poster="biryani.jpg"></video>
+            <b>Chicken Dum Biryani</b>
+          </div>
+
+          <div class="film">
+            <video src="cookies-shakes.mp4" controls muted playsinline poster="cookies.jpg"></video>
+            <b>Cookies & Shakes</b>
+          </div>
+
+          <div class="film">
+            <video src="logo-reveal.mp4" controls muted playsinline poster="mansu-logo.jpg"></video>
+            <b>ManSu Reveal</b>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="order">
+      <div class="wrap">
+        <div class="cta">
+          <div>
+            <div class="eyebrow">Opening Soon</div>
+            <h2>From Our Kitchen To Your Heart</h2>
+            <p>
+              Use this section for Swiggy, Zomato and WhatsApp order links
+              when you are ready to launch.
+            </p>
+          </div>
+
+          <div>
+            <a class="btn" href="https://instagram.com/eat.mansu" target="_blank" rel="noreferrer">Follow @eat.mansu</a>
+            <br><br>
+            <a class="btn alt" href="mailto:hello@mansu.in">hello@mansu.in</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer><div class="wrap footergrid"><div><b>MANSU</b><br><span class="small">ManSu | Cloud Kitchen</span></div><div>© 2026 ManSu. All rights reserved.</div></div></footer>
+
+  <footer>
+    <div class="wrap footergrid">
+      <div>
+        <b>MANSU</b><br>
+        <span class="small">ManSu | Cloud Kitchen</span>
+      </div>
+      <div>© 2026 ManSu. All rights reserved.</div>
+    </div>
+  </footer>
+</body>
+</html><!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ManSu | Cloud Kitchen</title>
+  <meta name="description" content="ManSu Cloud Kitchen - From Our Kitchen To Your Heart. Dum Biryani, Avakaya Pappu Annam, Cookies and Milkshakes." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --ivory:#f7f1e8;
+      --cream:#fffaf3;
+      --charcoal:#171717;
+      --muted:#6b5a4a;
+      --copper:#b66b48;
+      --green:#163626;
+      --line:rgba(182,107,72,.28);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--ivory);
+      color:var(--charcoal);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;
+    }
+
+    .wrap{width:min(1120px,92vw);margin:auto}
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:5;
+      background:rgba(247,241,232,.78);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--line);
+    }
+
+    nav{
+      height:74px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color:inherit;
+      font-weight:700;
+      letter-spacing:.18em;
+    }
+
+    .brand img{
+      width:46px;
+      height:46px;
+      border-radius:50%;
+      object-fit:cover;
+      border:1px solid var(--line);
+    }
+
+    .links{
+      display:flex;
+      gap:22px;
+      align-items:center;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+    }
+
+    .links a{
+      color:var(--muted);
+      text-decoration:none;
+    }
+
+    .links a:hover{color:var(--copper)}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:13px 20px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:700;
+      background:var(--green);
+      color:#fff;
+      border:1px solid transparent;
+      box-shadow:0 16px 40px rgba(22,54,38,.16);
+    }
+
+    .btn.alt{
+      background:transparent;
+      color:var(--green);
+      border-color:rgba(22,54,38,.25);
+      box-shadow:none;
+    }
+
+    .hero{
+      padding:64px 0 44px;
+      display:grid;
+      grid-template-columns:1.04fr .96fr;
+      gap:44px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      font-size:12px;
+      letter-spacing:.28em;
+      text-transform:uppercase;
+      color:var(--copper);
+      font-weight:700;
+      margin-bottom:16px;
+    }
+
+    h1{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(56px,8vw,104px);
+      line-height:.88;
+      margin:0 0 18px;
+      letter-spacing:.05em;
+      font-weight:700;
+    }
+
+    h1 span{color:var(--copper)}
+
+    .lead{
+      font-size:clamp(18px,2.2vw,24px);
+      line-height:1.55;
+      color:var(--muted);
+      max-width:620px;
+      margin:0 0 28px;
+    }
+
+    .hero-card{
+      border:1px solid var(--line);
+      border-radius:34px;
+      background:linear-gradient(145deg,#fff8ee,#ead7bf);
+      padding:12px;
+      box-shadow:0 30px 90px rgba(60,42,22,.18);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-card video,
+    .hero-card img{
+      width:100%;
+      display:block;
+      border-radius:25px;
+      object-fit:cover;
+      aspect-ratio:9/13;
+      background:#ddccb6;
+    }
+
+    .pillrow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:30px 0;
+    }
+
+    .pill{
+      padding:10px 14px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color:var(--muted);
+      background:rgba(255,255,255,.35);
+      font-size:13px;
+    }
+
+    section{
+      padding:64px 0;
+      border-top:1px solid var(--line);
+    }
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      gap:24px;
+      align-items:end;
+      margin-bottom:30px;
+    }
+
+    h2{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(36px,5vw,62px);
+      line-height:.95;
+      margin:0;
+      letter-spacing:.04em;
+    }
+
+    .section-head p{
+      max-width:520px;
+      color:var(--muted);
+      line-height:1.7;
+      margin:0;
+    }
+
+    .story{
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:18px;
+    }
+
+    .story-card{
+      background:rgba(255,255,255,.45);
+      border:1px solid var(--line);
+      border-radius:26px;
+      padding:28px;
+    }
+
+    .story-card h3{
+      font-family:'Cormorant Garamond',serif;
+      font-size:34px;
+      margin:0 0 8px;
+    }
+
+    .story-card p{
+      color:var(--muted);
+      line-height:1.7;
+      margin:0;
+    }
+
+    .menu{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+
+    .item{
+      background:#fff5ea;
+      border:1px solid var(--line);
+      border-radius:28px;
+      overflow:hidden;
+    }
+
+    .item img{
+      width:100%;
+      aspect-ratio:1/1;
+      object-fit:cover;
+      display:block;
+    }
+
+    .item div{padding:18px}
+
+    .item h3{
+      margin:0 0 6px;
+      font-family:'Cormorant Garamond',serif;
+      font-size:27px;
+    }
+
+    .item p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.55;
+    }
+
+    .films{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+
+    .film{
+      border-radius:26px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#0d0d0d;
+    }
+
+    .film video{
+      width:100%;
+      display:block;
+      aspect-ratio:9/16;
+      object-fit:cover;
+    }
+
+    .film b{
+      display:block;
+      padding:14px 16px;
+      background:#fff8ef;
+      font-size:13px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--green);
+    }
+
+    .cta{
+      background:linear-gradient(135deg,var(--green),#0d2018);
+      color:#fff;
+      border-radius:38px;
+      padding:46px;
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:26px;
+      align-items:center;
+    }
+
+    .cta h2{color:#fff}
+
+    .cta p{
+      color:rgba(255,255,255,.72);
+      line-height:1.8;
+    }
+
+    .cta .btn{
+      background:var(--copper);
+      color:#fff;
+    }
+
+    .cta .btn.alt{
+      border-color:rgba(255,255,255,.3);
+      color:#fff;
+      background:transparent;
+    }
+
+    footer{
+      padding:40px 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .footergrid{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .small{
+      font-size:12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+
+    @media(max-width:850px){
+      .hero,.cta{grid-template-columns:1fr}
+      .links{display:none}
+      .hero{padding-top:34px}
+      .menu,.films,.story{grid-template-columns:1fr 1fr}
+      .section-head{display:block}
+      .section-head p{margin-top:12px}
+      .cta{padding:30px}
+      .hero-card video,.hero-card img{aspect-ratio:4/5}
+    }
+
+    @media(max-width:560px){
+      .menu,.films,.story{grid-template-columns:1fr}
+      h1{font-size:62px}
+      .brand span{display:none}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="wrap">
+      <a class="brand" href="#top">
+        <img src="mansu-logo.jpg" alt="ManSu logo">
+        <span>MANSU</span>
+      </a>
+
+      <div class="links">
+        <a href="#story">Story</a>
+        <a href="#menu">Menu</a>
+        <a href="#films">Films</a>
+        <a href="#order">Order</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="wrap hero">
+      <div>
+        <div class="eyebrow">Launching Soon • Hyderabad</div>
+        <h1>MAN<span>SU</span></h1>
+        <p class="lead">
+          A premium cloud kitchen built around warmth, freshness and comfort.
+          From our kitchen to your heart.
+        </p>
+
+        <div class="pillrow">
+          <span class="pill">Dum Biryani</span>
+          <span class="pill">Avakaya Pappu Annam</span>
+          <span class="pill">Cookies</span>
+          <span class="pill">Milkshakes</span>
+        </div>
+
+        <a class="btn" href="#order">Order Soon</a>
+        <a class="btn alt" href="https://instagram.com/eat.mansu" target="_blank" rel="noreferrer">Instagram</a>
+      </div>
+
+      <div class="hero-card">
+        <video src="logo-reveal.mp4" autoplay muted loop playsinline poster="mansu-logo.jpg"></video>
+      </div>
+    </section>
+
+    <section id="story">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Goodness from the Heart</h2>
+          <p>
+            ManSu is a name created around feeling: food that feels thoughtful,
+            warm and made with care.
+          </p>
+        </div>
+
+        <div class="story">
+          <div class="story-card">
+            <h3>Man</h3>
+            <p><b>मन</b> represents heart, care and sincerity — the feeling behind every meal.</p>
+          </div>
+
+          <div class="story-card">
+            <h3>Su</h3>
+            <p><b>सु</b> means goodness, excellence and auspiciousness — a promise of quality.</p>
+          </div>
+
+          <div class="story-card">
+            <h3>ManSu</h3>
+            <p>Together, ManSu means <b>Goodness from the Heart</b>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Signature Comforts</h2>
+          <p>
+            Freshly crafted dishes, desserts and shakes designed for homely comfort
+            with a premium touch.
+          </p>
+        </div>
+
+        <div class="menu">
+          <article class="item">
+            <img src="avakaya.jpg" alt="Avakaya Pappu Annam">
+            <div>
+              <h3>Avakaya Pappu Annam</h3>
+              <p>Andhra comfort food with pappu, rice, ghee and avakaya.</p>
+            </div>
+          </article>
+
+          <article class="item">
+            <img src="biryani.jpg" alt="Chicken Dum Biryani">
+            <div>
+              <h3>Chicken Dum Biryani</h3>
+              <p>Aromatic rice, juicy chicken and warm spices.</p>
+            </div>
+          </article>
+
+          <article class="item">
+            <img src="cookies.jpg" alt="Chocolate Chip Cookies">
+            <div>
+              <h3>Chocolate Chip Cookies</h3>
+              <p>Soft, chewy and loaded with chocolate.</p>
+            </div>
+          </article>
+
+          <article class="item">
+            <img src="milkshake.jpg" alt="Premium Milkshake">
+            <div>
+              <h3>Premium Milkshakes</h3>
+              <p>Thick shakes with rich chocolate and cream.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="films">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Brand Films</h2>
+          <p>
+            Your launch clips are included here. They can be used as Instagram reels
+            and website media.
+          </p>
+        </div>
+
+        <div class="films">
+          <div class="film">
+            <video src="avakaya-pappu.mp4" controls muted playsinline poster="avakaya.jpg"></video>
+            <b>Avakaya Pappu</b>
+          </div>
+
+          <div class="film">
+            <video src="chicken-dum-biryani.mp4" controls muted playsinline poster="biryani.jpg"></video>
+            <b>Chicken Dum Biryani</b>
+          </div>
+
+          <div class="film">
+            <video src="cookies-shakes.mp4" controls muted playsinline poster="cookies.jpg"></video>
+            <b>Cookies & Shakes</b>
+          </div>
+
+          <div class="film">
+            <video src="logo-reveal.mp4" controls muted playsinline poster="mansu-logo.jpg"></video>
+            <b>ManSu Reveal</b>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="order">
+      <div class="wrap">
+        <div class="cta">
+          <div>
+            <div class="eyebrow">Opening Soon</div>
+            <h2>From Our Kitchen To Your Heart</h2>
+            <p>
+              Use this section for Swiggy, Zomato and WhatsApp order links
+              when you are ready to launch.
+            </p>
+          </div>
+
+          <div>
+            <a class="btn" href="https://instagram.com/eat.mansu" target="_blank" rel="noreferrer">Follow @eat.mansu</a>
+            <br><br>
+            <a class="btn alt" href="mailto:hello@mansu.in">hello@mansu.in</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footergrid">
+      <div>
+        <b>MANSU</b><br>
+        <span class="small">ManSu | Cloud Kitchen</span>
+      </div>
+      <div>© 2026 ManSu. All rights reserved.</div>
+    </div>
+  </footer>
+</body>
+</html><!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ManSu | Cloud Kitchen</title>
+  <meta name="description" content="ManSu Cloud Kitchen - From Our Kitchen To Your Heart. Dum Biryani, Avakaya Pappu Annam, Cookies and Milkshakes." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --ivory:#f7f1e8;
+      --cream:#fffaf3;
+      --charcoal:#171717;
+      --muted:#6b5a4a;
+      --copper:#b66b48;
+      --green:#163626;
+      --line:rgba(182,107,72,.28);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--ivory);
+      color:var(--charcoal);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;
+    }
+
+    .wrap{width:min(1120px,92vw);margin:auto}
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:5;
+      background:rgba(247,241,232,.78);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--line);
+    }
+
+    nav{
+      height:74px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color:inherit;
+      font-weight:700;
+      letter-spacing:.18em;
+    }
+
+    .brand img{
+      width:46px;
+      height:46px;
+      border-radius:50%;
+      object-fit:cover;
+      border:1px solid var(--line);
+    }
+
+    .links{
+      display:flex;
+      gap:22px;
+      align-items:center;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+    }
+
+    .links a{
+      color:var(--muted);
+      text-decoration:none;
+    }
+
+    .links a:hover{color:var(--copper)}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:13px 20px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:700;
+      background:var(--green);
+      color:#fff;
+      border:1px solid transparent;
+      box-shadow:0 16px 40px rgba(22,54,38,.16);
+    }
+
+    .btn.alt{
+      background:transparent;
+      color:var(--green);
+      border-color:rgba(22,54,38,.25);
+      box-shadow:none;
+    }
+
+    .hero{
+      padding:64px 0 44px;
+      display:grid;
+      grid-template-columns:1.04fr .96fr;
+      gap:44px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      font-size:12px;
+      letter-spacing:.28em;
+      text-transform:uppercase;
+      color:var(--copper);
+      font-weight:700;
+      margin-bottom:16px;
+    }
+
+    h1{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(56px,8vw,104px);
+      line-height:.88;
+      margin:0 0 18px;
+      letter-spacing:.05em;
+      font-weight:700;
+    }
+
+    h1 span{color:var(--copper)}
+
+    .lead{
+      font-size:clamp(18px,2.2vw,24px);
+      line-height:1.55;
+      color:var(--muted);
+      max-width:620px;
+      margin:0 0 28px;
+    }
+
+    .hero-card{
+      border:1px solid var(--line);
+      border-radius:34px;
+      background:linear-gradient(145deg,#fff8ee,#ead7bf);
+      padding:12px;
+      box-shadow:0 30px 90px rgba(60,42,22,.18);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-card video,
+    .hero-card img{
+      width:100%;
+      display:block;
+      border-radius:25px;
+      object-fit:cover;
+      aspect-ratio:9/13;
+      background:#ddccb6;
+    }
+
+    .pillrow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:30px 0;
+    }
+
+    .pill{
+      padding:10px 14px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color:var(--muted);
+      background:rgba(255,255,255,.35);
+      font-size:13px;
+    }
+
+    section{
+      padding:64px 0;
+      border-top:1px solid var(--line);
+    }
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      gap:24px;
+      align-items:end;
+      margin-bottom:30px;
+    }
+
+    h2{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(36px,5vw,62px);
+      line-height:.95;
+      margin:0;
+      letter-spacing:.04em;
+    }
+
+    .section-head p{
+      max-width:520px;
+      color:var(--muted);
+      line-height:1.7;
+      margin:0;
+    }
+
+    .story{
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:18px;
+    }
+
+    .story-card{
+      background:rgba(255,255,255,.45);
+      border:1px solid var(--line);
+      border-radius:26px;
+      padding:28px;
+    }
+
+    .story-card h3{
+      font-family:'Cormorant Garamond',serif;
+      font-size:34px;
+      margin:0 0 8px;
+    }
+
+    .story-card p{
+      color:var(--muted);
+      line-height:1.7;
+      margin:0;
+    }
+
+    .menu{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+
+    .item{
+      background:#fff5ea;
+      border:1px solid var(--line);
+      border-radius:28px;
+      overflow:hidden;
+    }
+
+    .item img{
+      width:100%;
+      aspect-ratio:1/1;
+      object-fit:cover;
+      display:block;
+    }
+
+    .item div{padding:18px}
+
+    .item h3{
+      margin:0 0 6px;
+      font-family:'Cormorant Garamond',serif;
+      font-size:27px;
+    }
+
+    .item p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.55;
+    }
+
+    .films{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+
+    .film{
+      border-radius:26px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#0d0d0d;
+    }
+
+    .film video{
+      width:100%;
+      display:block;
+      aspect-ratio:9/16;
+      object-fit:cover;
+    }
+
+    .film b{
+      display:block;
+      padding:14px 16px;
+      background:#fff8ef;
+      font-size:13px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--green);
+    }
+
+    .cta{
+      background:linear-gradient(135deg,var(--green),#0d2018);
+      color:#fff;
+      border-radius:38px;
+      padding:46px;
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:26px;
+      align-items:center;
+    }
+
+    .cta h2{color:#fff}
+
+    .cta p{
+      color:rgba(255,255,255,.72);
+      line-height:1.8;
+    }
+
+    .cta .btn{
+      background:var(--copper);
+      color:#fff;
+    }
+
+    .cta .btn.alt{
+      border-color:rgba(255,255,255,.3);
+      color:#fff;
+      background:transparent;
+    }
+
+    footer{
+      padding:40px 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .footergrid{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .small{
+      font-size:12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+
+    @media(max-width:850px){
+      .hero,.cta{grid-template-columns:1fr}
+      .links{display:none}
+      .hero{padding-top:34px}
+      .menu,.films,.story{grid-template-columns:1fr 1fr}
+      .section-head{display:block}
+      .section-head p{margin-top:12px}
+      .cta{padding:30px}
+      .hero-card video,.hero-card img{aspect-ratio:4/5}
+    }
+
+    @media(max-width:560px){
+      .menu,.films,.story{grid-template-columns:1fr}
+      h1{font-size:62px}
+      .brand span{display:none}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="wrap">
+      <a class="brand" href="#top">
+        <img src="mansu-logo.jpg" alt="ManSu logo">
+        <span>MANSU</span>
+      </a>
+
+      <div class="links">
+        <a href="#story">Story</a>
+        <a href="#menu">Menu</a>
+        <a href="#films">Films</a>
+        <a href="#order">Order</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="wrap hero">
+      <div>
+        <div class="eyebrow">Launching Soon • Hyderabad</div>
+        <h1>MAN<span>SU</span></h1>
+        <p class="lead">
+          A premium cloud kitchen built around warmth, freshness and comfort.
+          From our kitchen to your heart.
+        </p>
+
+        <div class="pillrow">
+          <span class="pill">Dum Biryani</span>
+          <span class="pill">Avakaya Pappu Annam</span>
+          <span class="pill">Cookies</span>
+          <span class="pill">Milkshakes</span>
+        </div>
+
+        <a class="btn" href="#order">Order Soon</a>
+        <a class="btn alt" href="https://instagram.com/eat.mansu" target="_blank" rel="noreferrer">Instagram</a>
+      </div>
+
+      <div class="hero-card">
+        <video src="logo-reveal.mp4" autoplay muted loop playsinline poster="mansu-logo.jpg"></video>
+      </div>
+    </section>
+
+    <section id="story">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Goodness from the Heart</h2>
+          <p>
+            ManSu is a name created around feeling: food that feels thoughtful,
+            warm and made with care.
+          </p>
+        </div>
+
+        <div class="story">
+          <div class="story-card">
+            <h3>Man</h3>
+            <p><b>मन</b> represents heart, care and sincerity — the feeling behind every meal.</p>
+          </div>
+
+          <div class="story-card">
+            <h3>Su</h3>
+            <p><b>सु</b> means goodness, excellence and auspiciousness — a promise of quality.</p>
+          </div>
+
+          <div class="story-card">
+            <h3>ManSu</h3>
+            <p>Together, ManSu means <b>Goodness from the Heart</b>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Signature Comforts</h2>
+          <p>
+            Freshly crafted dishes, desserts and shakes designed for homely comfort
+            with a premium touch.
+          </p>
+        </div>
+
+        <div class="menu">
+          <article class="item">
+            <img src="avakaya.jpg" alt="Avakaya Pappu Annam">
+            <div>
+              <h3>Avakaya Pappu Annam</h3>
+              <p>Andhra comfort food with pappu, rice, ghee and avakaya.</p>
+            </div>
+          </article>
+
+          <article class="item">
+            <img src="biryani.jpg" alt="Chicken Dum Biryani">
+            <div>
+              <h3>Chicken Dum Biryani</h3>
+              <p>Aromatic rice, juicy chicken and warm spices.</p>
+            </div>
+          </article>
+
+          <article class="item">
+            <img src="cookies.jpg" alt="Chocolate Chip Cookies">
+            <div>
+              <h3>Chocolate Chip Cookies</h3>
+              <p>Soft, chewy and loaded with chocolate.</p>
+            </div>
+          </article>
+
+          <article class="item">
+            <img src="milkshake.jpg" alt="Premium Milkshake">
+            <div>
+              <h3>Premium Milkshakes</h3>
+              <p>Thick shakes with rich chocolate and cream.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="films">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Brand Films</h2>
+          <p>
+            Your launch clips are included here. They can be used as Instagram reels
+            and website media.
+          </p>
+        </div>
+
+        <div class="films">
+          <div class="film">
+            <video src="avakaya-pappu.mp4" controls muted playsinline poster="avakaya.jpg"></video>
+            <b>Avakaya Pappu</b>
+          </div>
+
+          <div class="film">
+            <video src="chicken-dum-biryani.mp4" controls muted playsinline poster="biryani.jpg"></video>
+            <b>Chicken Dum Biryani</b>
+          </div>
+
+          <div class="film">
+            <video src="cookies-shakes.mp4" controls muted playsinline poster="cookies.jpg"></video>
+            <b>Cookies & Shakes</b>
+          </div>
+
+          <div class="film">
+            <video src="logo-reveal.mp4" controls muted playsinline poster="mansu-logo.jpg"></video>
+            <b>ManSu Reveal</b>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="order">
+      <div class="wrap">
+        <div class="cta">
+          <div>
+            <div class="eyebrow">Opening Soon</div>
+            <h2>From Our Kitchen To Your Heart</h2>
+            <p>
+              Use this section for Swiggy, Zomato and WhatsApp order links
+              when you are ready to launch.
+            </p>
+          </div>
+
+          <div>
+            <a class="btn" href="https://instagram.com/eat.mansu" target="_blank" rel="noreferrer">Follow @eat.mansu</a>
+            <br><br>
+            <a class="btn alt" href="mailto:hello@mansu.in">hello@mansu.in</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footergrid">
+      <div>
+        <b>MANSU</b><br>
+        <span class="small">ManSu | Cloud Kitchen</span>
+      </div>
+      <div>© 2026 ManSu. All rights reserved.</div>
+    </div>
+  </footer>
+</body>
+</html><!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ManSu | Cloud Kitchen</title>
+  <meta name="description" content="ManSu Cloud Kitchen - From Our Kitchen To Your Heart. Dum Biryani, Avakaya Pappu Annam, Cookies and Milkshakes." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --ivory:#f7f1e8;
+      --cream:#fffaf3;
+      --charcoal:#171717;
+      --muted:#6b5a4a;
+      --copper:#b66b48;
+      --green:#163626;
+      --line:rgba(182,107,72,.28);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--ivory);
+      color:var(--charcoal);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;
+    }
+
+    .wrap{width:min(1120px,92vw);margin:auto}
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:5;
+      background:rgba(247,241,232,.78);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--line);
+    }
+
+    nav{
+      height:74px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color:inherit;
+      font-weight:700;
+      letter-spacing:.18em;
+    }
+
+    .brand img{
+      width:46px;
+      height:46px;
+      border-radius:50%;
+      object-fit:cover;
+      border:1px solid var(--line);
+    }
+
+    .links{
+      display:flex;
+      gap:22px;
+      align-items:center;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+    }
+
+    .links a{
+      color:var(--muted);
+      text-decoration:none;
+    }
+
+    .links a:hover{color:var(--copper)}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:13px 20px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:700;
+      background:var(--green);
+      color:#fff;
+      border:1px solid transparent;
+      box-shadow:0 16px 40px rgba(22,54,38,.16);
+    }
+
+    .btn.alt{
+      background:transparent;
+      color:var(--green);
+      border-color:rgba(22,54,38,.25);
+      box-shadow:none;
+    }
+
+    .hero{
+      padding:64px 0 44px;
+      display:grid;
+      grid-template-columns:1.04fr .96fr;
+      gap:44px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      font-size:12px;
+      letter-spacing:.28em;
+      text-transform:uppercase;
+      color:var(--copper);
+      font-weight:700;
+      margin-bottom:16px;
+    }
+
+    h1{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(56px,8vw,104px);
+      line-height:.88;
+      margin:0 0 18px;
+      letter-spacing:.05em;
+      font-weight:700;
+    }
+
+    h1 span{color:var(--copper)}
+
+    .lead{
+      font-size:clamp(18px,2.2vw,24px);
+      line-height:1.55;
+      color:var(--muted);
+      max-width:620px;
+      margin:0 0 28px;
+    }
+
+    .hero-card{
+      border:1px solid var(--line);
+      border-radius:34px;
+      background:linear-gradient(145deg,#fff8ee,#ead7bf);
+      padding:12px;
+      box-shadow:0 30px 90px rgba(60,42,22,.18);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-card video,
+    .hero-card img{
+      width:100%;
+      display:block;
+      border-radius:25px;
+      object-fit:cover;
+      aspect-ratio:9/13;
+      background:#ddccb6;
+    }
+
+    .pillrow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:30px 0;
+    }
+
+    .pill{
+      padding:10px 14px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color:var(--muted);
+      background:rgba(255,255,255,.35);
+      font-size:13px;
+    }
+
+    section{
+      padding:64px 0;
+      border-top:1px solid var(--line);
+    }
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      gap:24px;
+      align-items:end;
+      margin-bottom:30px;
+    }
+
+    h2{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(36px,5vw,62px);
+      line-height:.95;
+      margin:0;
+      letter-spacing:.04em;
+    }
+
+    .section-head p{
+      max-width:520px;
+      color:var(--muted);
+      line-height:1.7;
+      margin:0;
+    }
+
+    .story{
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:18px;
+    }
+
+    .story-card{
+      background:rgba(255,255,255,.45);
+      border:1px solid var(--line);
+      border-radius:26px;
+      padding:28px;
+    }
+
+    .story-card h3{
+      font-family:'Cormorant Garamond',serif;
+      font-size:34px;
+      margin:0 0 8px;
+    }
+
+    .story-card p{
+      color:var(--muted);
+      line-height:1.7;
+      margin:0;
+    }
+
+    .menu{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+
+    .item{
+      background:#fff5ea;
+      border:1px solid var(--line);
+      border-radius:28px;
+      overflow:hidden;
+    }
+
+    .item img{
+      width:100%;
+      aspect-ratio:1/1;
+      object-fit:cover;
+      display:block;
+    }
+
+    .item div{padding:18px}
+
+    .item h3{
+      margin:0 0 6px;
+      font-family:'Cormorant Garamond',serif;
+      font-size:27px;
+    }
+
+    .item p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.55;
+    }
+
+    .films{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+
+    .film{
+      border-radius:26px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#0d0d0d;
+    }
+
+    .film video{
+      width:100%;
+      display:block;
+      aspect-ratio:9/16;
+      object-fit:cover;
+    }
+
+    .film b{
+      display:block;
+      padding:14px 16px;
+      background:#fff8ef;
+      font-size:13px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--green);
+    }
+
+    .cta{
+      background:linear-gradient(135deg,var(--green),#0d2018);
+      color:#fff;
+      border-radius:38px;
+      padding:46px;
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:26px;
+      align-items:center;
+    }
+
+    .cta h2{color:#fff}
+
+    .cta p{
+      color:rgba(255,255,255,.72);
+      line-height:1.8;
+    }
+
+    .cta .btn{
+      background:var(--copper);
+      color:#fff;
+    }
+
+    .cta .btn.alt{
+      border-color:rgba(255,255,255,.3);
+      color:#fff;
+      background:transparent;
+    }
+
+    footer{
+      padding:40px 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .footergrid{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .small{
+      font-size:12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+
+    @media(max-width:850px){
+      .hero,.cta{grid-template-columns:1fr}
+      .links{display:none}
+      .hero{padding-top:34px}
+      .menu,.films,.story{grid-template-columns:1fr 1fr}
+      .section-head{display:block}
+      .section-head p{margin-top:12px}
+      .cta{padding:30px}
+      .hero-card video,.hero-card img{aspect-ratio:4/5}
+    }
+
+    @media(max-width:560px){
+      .menu,.films,.story{grid-template-columns:1fr}
+      h1{font-size:62px}
+      .brand span{display:none}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="wrap">
+      <a class="brand" href="#top">
+        <img src="mansu-logo.jpg" alt="ManSu logo">
+        <span>MANSU</span>
+      </a>
+
+      <div class="links">
+        <a href="#story">Story</a>
+        <a href="#menu">Menu</a>
+        <a href="#films">Films</a>
+        <a href="#order">Order</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="wrap hero">
+      <div>
+        <div class="eyebrow">Launching Soon • Hyderabad</div>
+        <h1>MAN<span>SU</span></h1>
+        <p class="lead">
+          A premium cloud kitchen built around warmth, freshness and comfort.
+          From our kitchen to your heart.
+        </p>
+
+        <div class="pillrow">
+          <span class="pill">Dum Biryani</span>
+          <span class="pill">Avakaya Pappu Annam</span>
+          <span class="pill">Cookies</span>
+          <span class="pill">Milkshakes</span>
+        </div>
+
+        <a class="btn" href="#order">Order Soon</a>
+        <a class="btn alt" href="https://instagram.com/eat.mansu" target="_blank" rel="noreferrer">Instagram</a>
+      </div>
+
+      <div class="hero-card">
+        <video src="logo-reveal.mp4" autoplay muted loop playsinline poster="mansu-logo.jpg"></video>
+      </div>
+    </section>
+
+    <section id="story">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Goodness from the Heart</h2>
+          <p>
+            ManSu is a name created around feeling: food that feels thoughtful,
+            warm and made with care.
+          </p>
+        </div>
+
+        <div class="story">
+          <div class="story-card">
+            <h3>Man</h3>
+            <p><b>मन</b> represents heart, care and sincerity — the feeling behind every meal.</p>
+          </div>
+
+          <div class="story-card">
+            <h3>Su</h3>
+            <p><b>सु</b> means goodness, excellence and auspiciousness — a promise of quality.</p>
+          </div>
+
+          <div class="story-card">
+            <h3>ManSu</h3>
+            <p>Together, ManSu means <b>Goodness from the Heart</b>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Signature Comforts</h2>
+          <p>
+            Freshly crafted dishes, desserts and shakes designed for homely comfort
+            with a premium touch.
+          </p>
+        </div>
+
+        <div class="menu">
+          <article class="item">
+            <img src="avakaya.jpg" alt="Avakaya Pappu Annam">
+            <div>
+              <h3>Avakaya Pappu Annam</h3>
+              <p>Andhra comfort food with pappu, rice, ghee and avakaya.</p>
+            </div>
+          </article>
+
+          <article class="item">
+            <img src="biryani.jpg" alt="Chicken Dum Biryani">
+            <div>
+              <h3>Chicken Dum Biryani</h3>
+              <p>Aromatic rice, juicy chicken and warm spices.</p>
+            </div>
+          </article>
+
+          <article class="item">
+            <img src="cookies.jpg" alt="Chocolate Chip Cookies">
+            <div>
+              <h3>Chocolate Chip Cookies</h3>
+              <p>Soft, chewy and loaded with chocolate.</p>
+            </div>
+          </article>
+
+          <article class="item">
+            <img src="milkshake.jpg" alt="Premium Milkshake">
+            <div>
+              <h3>Premium Milkshakes</h3>
+              <p>Thick shakes with rich chocolate and cream.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="films">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Brand Films</h2>
+          <p>
+            Your launch clips are included here. They can be used as Instagram reels
+            and website media.
+          </p>
+        </div>
+
+        <div class="films">
+          <div class="film">
+            <video src="avakaya-pappu.mp4" controls muted playsinline poster="avakaya.jpg"></video>
+            <b>Avakaya Pappu</b>
+          </div>
+
+          <div class="film">
+            <video src="chicken-dum-biryani.mp4" controls muted playsinline poster="biryani.jpg"></video>
+            <b>Chicken Dum Biryani</b>
+          </div>
+
+          <div class="film">
+            <video src="cookies-shakes.mp4" controls muted playsinline poster="cookies.jpg"></video>
+            <b>Cookies & Shakes</b>
+          </div>
+
+          <div class="film">
+            <video src="logo-reveal.mp4" controls muted playsinline poster="mansu-logo.jpg"></video>
+            <b>ManSu Reveal</b>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="order">
+      <div class="wrap">
+        <div class="cta">
+          <div>
+            <div class="eyebrow">Opening Soon</div>
+            <h2>From Our Kitchen To Your Heart</h2>
+            <p>
+              Use this section for Swiggy, Zomato and WhatsApp order links
+              when you are ready to launch.
+            </p>
+          </div>
+
+          <div>
+            <a class="btn" href="https://instagram.com/eat.mansu" target="_blank" rel="noreferrer">Follow @eat.mansu</a>
+            <br><br>
+            <a class="btn alt" href="mailto:hello@mansu.in">hello@mansu.in</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footergrid">
+      <div>
+        <b>MANSU</b><br>
+        <span class="small">ManSu | Cloud Kitchen</span>
+      </div>
+      <div>© 2026 ManSu. All rights reserved.</div>
+    </div>
+  </footer>
 </body>
 </html>
